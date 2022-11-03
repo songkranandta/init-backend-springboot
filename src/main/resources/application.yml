@@ -1,0 +1,33 @@
+#show sql statement
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+        #show sql values
+        type:
+          descriptor:
+            sql: trace
+# System
+server:
+  servlet:
+      context-path: /test-contextpath
+# DB
+spring:
+  jmx:
+    enabled: false
+  jpa:
+    show-sql: false
+    # custom show
+    properties:
+      hibernate:
+        format_sql: true
+  datasource:
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://192.168.1.165:1433;databaseName=POC-TES;useUnicode=true;characterEncoding=UTF-8
+    username: developer
+    password: Baiwa123
+
+
+
+
