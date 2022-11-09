@@ -48,6 +48,4 @@ public class UserService {
         });
         return userAll;
     }
-
-//    public
 }

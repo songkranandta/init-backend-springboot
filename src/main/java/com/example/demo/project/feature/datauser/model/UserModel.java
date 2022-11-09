@@ -1,7 +1,5 @@
 package com.example.demo.project.feature.datauser.model;
 
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.*;
 
 import java.math.BigDecimal;

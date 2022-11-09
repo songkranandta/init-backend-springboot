@@ -1,4 +1,3 @@
-#show sql statement
 logging:
   level:
     org:
@@ -8,26 +7,39 @@ logging:
         type:
           descriptor:
             sql: trace
-# System
+
 server:
+  port: 9020
   servlet:
-      context-path: /test-contextpath
-# DB
+    context-path: /test-api
+
 spring:
   jmx:
     enabled: false
-  jpa:
-    show-sql: false
-    # custom show
-    properties:
-      hibernate:
-        format_sql: true
+  jackson:
+#    property-naming-strategy: SNAKE_CASE
+    serialization:
+      fail-on-empty-beans: false
+  flyway:
+    enabled: false
   datasource:
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    url: jdbc:sqlserver://192.168.1.165:1433;databaseName=POC-TES;useUnicode=true;characterEncoding=UTF-8
+    jdbc-url: jdbc:sqlserver://49.0.80.15:7002;databaseName=DATABASE_FOR_TEST;useUnicode=true;characterEncoding=UTF-8;encrypt=false;trustServerCertificate=false
     username: developer
     password: Baiwa123
+  jpa:
+    database: sql_server
+    show-sql: false
+    properties:
+      hibernate:
+        order_inserts: true
+        generate_statistics: false
 
-
-
-
+application:
+  cors:
+    enable: false
+    allowed-origins: "*"
+    allowed-headers: "*"
+    allowed-methods: "*"
+    allow-credentials: false
+    max-age: 1800
